@@ -13,43 +13,40 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
 
-        //UI
-        Button addbutton = findViewById(R.id.addButton);
-        Button findbutton = findViewById(R.id.searchButton);
-        Button moveoutbutton = findViewById(R.id.checkOut);
+        Button addButton = findViewById(R.id.addPackageButton);
+        Button findButton = findViewById(R.id.searchPackageButton);
+        Button deleteButton = findViewById(R.id.deletePackageButton);
 
-
-
-        addbutton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent addItemIntent = new Intent(MenuActivity.this, QRScannerActivity.class);
                 startActivity(addItemIntent);
-                finish();
+
+
             }
 
-        });//Add Package
+        });
 
-        findbutton.setOnClickListener(new View.OnClickListener() {
+        findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent addItemIntent = new Intent(MenuActivity.this, FindItemActivity.class);
                 startActivity(addItemIntent);
                 finish();
             }
-        });//Find Package
 
-        moveoutbutton.setOnClickListener(new View.OnClickListener() {
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Intent addItemIntent = new Intent(MenuActivity.this, MoveOutActivity.class);
-                startActivity(addItemIntent);
-                finish();
+                Intent deleteItemIntent = new Intent(MenuActivity.this, DeletePackageActivity.class);
+                startActivity(deleteItemIntent);
+                //finish();
             }
         });//Delete package
-
-
-
-
     }
+
 }
