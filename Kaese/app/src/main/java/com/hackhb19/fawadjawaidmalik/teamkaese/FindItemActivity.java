@@ -51,7 +51,6 @@ public class FindItemActivity extends AppCompatActivity {
 
         final EditText NameText = findViewById(R.id.searchItem_Name);
         Button SearchButton = findViewById(R.id.searchItem_button);
-        Button ExitButton = findViewById(R.id.searchItem_exit);
         //spin = (Spinner) findViewById(R.id.spinner1);
 
 
@@ -104,14 +103,7 @@ public class FindItemActivity extends AppCompatActivity {
                 }).start();
             }
         });
-        ExitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent addItemIntent = new Intent(FindItemActivity.this, MenuActivity.class);
-                startActivity(addItemIntent);
-                finish();
-            }
-        });
+        
 
 
 
