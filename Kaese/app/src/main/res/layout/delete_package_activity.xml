@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_bg"
+    tools:context="com.hackhb19.fawadjawaidmalik.teamkaese.QRScannerActivity">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+
+        <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomTextView
+            android:id="@+id/titleActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Scan the Product to Delete"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <include layout="@layout/long_item_divider_without_margin"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:minHeight="32dp"
+        android:layout_height="wrap_content">
+
+        <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomTextView
+            android:id="@+id/QRCodeInfoid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center_horizontal"
+            android:text="Hover the camera to QR Code"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

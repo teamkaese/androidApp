@@ -14,13 +14,13 @@
         android:background="@drawable/dmklogo"
         android:layout_width="300dp"
         android:layout_height="150dp"
-        android:layout_above="@+id/addButton"
+        android:layout_above="@+id/addPackageButton"
         android:layout_marginBottom="75dp"
         android:layout_centerHorizontal="true"/>
 
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/addButton"
+            android:id="@+id/addPackageButton"
             android:layout_centerHorizontal="true"
             android:layout_width="300dp"
             android:layout_height="48dp"
@@ -31,11 +31,11 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_above="@+id/searchButton"/>
+            android:layout_above="@+id/searchPackageButton"/>
 
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/searchButton"
+            android:id="@+id/searchPackageButton"
             android:layout_centerHorizontal="true"
             android:layout_width="300dp"
             android:layout_height="48dp"
@@ -46,10 +46,10 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_above="@+id/checkOut"/>
+            android:layout_above="@+id/deletePackageButton"/>
 
     <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/checkOut"
+            android:id="@+id/deletePackageButton"
             android:layout_centerHorizontal="true"
             android:layout_width="300dp"
             android:layout_height="48dp"

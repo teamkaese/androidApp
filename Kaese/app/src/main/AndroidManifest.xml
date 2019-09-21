@@ -34,7 +34,7 @@
         <activity android:name=".QRScannerActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".MoveOutActivity"
+        <activity android:name=".DeletePackageActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".FoundProductActivity"
