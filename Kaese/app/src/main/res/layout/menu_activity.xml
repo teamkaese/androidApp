@@ -1,52 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_bg"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/main_background">
 
 
-    <Button
-        android:id="@+id/menuItem_add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="4dp"
+    <RelativeLayout
+        android:id="@+id/dmklogo"
+        android:orientation="horizontal"
+        android:background="@drawable/dmklogo"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/addButton"
+        android:layout_marginBottom="75dp"
+        android:layout_centerHorizontal="true"/>
 
-        android:hapticFeedbackEnabled="true"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:text="@string/menuItem_add"
-        android:textColor="#fff" />
 
-    <Button
-        android:id="@+id/menuItem_find_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="4dp"
-        android:hapticFeedbackEnabled="true"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:text="@string/menuItem_find"
-        android:textColor="#fff" />
+        <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
+            android:id="@+id/addButton"
+            android:layout_centerHorizontal="true"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="Add Package"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_above="@+id/searchButton"/>
 
-    <Button
-        android:id="@+id/menuItem_moveout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="4dp"
-        android:hapticFeedbackEnabled="true"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:text="@string/menuItem_moveout"
-        android:textColor="#fff" />
 
-</LinearLayout>
+        <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
+            android:id="@+id/searchButton"
+            android:layout_centerHorizontal="true"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button"
+            android:text="Search Package"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_above="@+id/checkOut"/>
+
+    <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
+            android:id="@+id/checkOut"
+            android:layout_centerHorizontal="true"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="Delete Package"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_above="@+id/packageLocations"
+            />
+
+    <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
+        android:id="@+id/packageLocations"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button"
+        android:text="Locate Packages"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="70dp"
+        android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
