@@ -5,6 +5,7 @@ public class GlobalVar {
     public static String ITEM_ID = "";
     public static String Name = "";
     public static String Description = "";
+    public static String ExpirationDay = "";
     public static String StorageID = "";
 
 

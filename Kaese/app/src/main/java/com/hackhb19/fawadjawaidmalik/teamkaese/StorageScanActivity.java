@@ -21,7 +21,7 @@ import com.google.zxing.Result;
 import butterknife.OnClick;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class QRScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class StorageScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private ZXingScannerView mScannerView;
     private boolean flashState = false;
@@ -30,9 +30,9 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.qrscan_activity);
+        setContentView(R.layout.storageadd_activity);
 
-        ActivityCompat.requestPermissions(QRScannerActivity.this,
+        ActivityCompat.requestPermissions(StorageScanActivity.this,
                 new String[]{Manifest.permission.CAMERA},
                 1);
 
@@ -61,7 +61,7 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
-        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setContentView(R.layout.custom_dialog_storage_id);
 
         View v = dialog.getWindow().getDecorView();
         v.setBackgroundResource(android.R.color.transparent);
@@ -78,18 +78,22 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
             @Override
             public void onClick(View v) {
 
-                    Intent addItemIntent = new Intent(QRScannerActivity.this, AddItemActivity.class);
-                    String strName = rawResult.getText();
-                    addItemIntent.putExtra("ITEM_ID", strName);
-                    startActivity(addItemIntent);
-                    finish();
+                GlobalVar.StorageID = rawResult.getText().toString();
+
+                ServerAction();
+
+                Intent addItemIntent = new Intent(StorageScanActivity.this, MenuActivity.class);
+                startActivity(addItemIntent);
+
+                finish();
+
             }
         });
 
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                mScannerView.resumeCameraPreview(QRScannerActivity.this);
+                mScannerView.resumeCameraPreview(StorageScanActivity.this);
             }
         });
         dialog.show();
@@ -102,7 +106,7 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 } else {
-                    Toast.makeText(QRScannerActivity.this, "Permission denied to camera", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StorageScanActivity.this, "Permission denied to camera", Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
@@ -133,4 +137,21 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
         }
 
     }
+
+    public void ServerAction()
+    {
+        //send the global variables
+        //If Data was successfully sent give response
+
+
+        //wait 2s that user can check response
+
+        //Set all Global Variables empty
+        GlobalVar.Description = "";
+        GlobalVar.Name = "";
+        GlobalVar.ITEM_ID = "";
+        GlobalVar.StorageID = "";
+
+    }
+
 }
