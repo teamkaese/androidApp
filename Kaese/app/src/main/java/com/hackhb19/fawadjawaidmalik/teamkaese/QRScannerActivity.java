@@ -40,7 +40,7 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.qrscanner_activity);
 
         ActivityCompat.requestPermissions(QRScannerActivity.this,
                 new String[]{Manifest.permission.CAMERA},
