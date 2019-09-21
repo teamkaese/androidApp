@@ -13,31 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
-        <!--<android.support.v7.widget.AppCompatImageView
-            android:id="@+id/lightButton"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:onClick="qrActivityOnClickEvents"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/ic_flash_on"
-            android:scaleType="centerCrop" />-->
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomTextView
             android:id="@+id/titleActionBar"
-            android:text="QR Scanner"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            android:textStyle="bold"
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="Scan the Product"
 
-        <!--android:layout_toEndOf="@+id/lightButton"-->
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -50,16 +36,17 @@
         android:layout_height="wrap_content">
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomTextView
-            android:text="@string/qr_hint"
-            android:textStyle="normal"
-            android:textColor="@android:color/black"
-            android:textAlignment="center"
+            android:id="@+id/QRCodeInfoid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:textSize="17sp"
             android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:text="@string/qr_hint"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="normal" />
 
     </RelativeLayout>
 

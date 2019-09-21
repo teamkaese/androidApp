@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Kaese</string>
-    <string name="qr_hint">Hover to QR-code</string>
+    <string name="qr_hint">Place the code in the box</string>
+    <string name="exitbutton">Exit</string>
+    <string name="backbutton">Back</string>
+
+    <string name="add_item">Add Item</string>
+    <string name="add_description">Description</string>
+    <string name="addItem_name">Product</string>
+    <string name="addItem_SN">Storagenumber</string>
+    <string name="OK_button">OK</string>
+
+    <string name="searchItem_name">Name</string>
+    <string name="searchItem_button">Search</string>
+
+    <string name="menuItem_add">Add Product</string>
+    <string name="menuItem_find">Find Product</string>
+    <string name="menuItem_moveout">Moveout Product</string>
+
 </resources>

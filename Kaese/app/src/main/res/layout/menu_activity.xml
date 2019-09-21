@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <Button
+        android:id="@+id/menuItem_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="4dp"
+
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="@string/menuItem_add"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/menuItem_find_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="4dp"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="@string/menuItem_find"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/menuItem_moveout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="4dp"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="@string/menuItem_moveout"
+        android:textColor="#fff" />
+
+</LinearLayout>

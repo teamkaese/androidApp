@@ -34,8 +34,8 @@
         android:layout_height="wrap_content">
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/searchButton"
-            android:text="Search"
+            android:id="@+id/addButton"
+            android:text="Add Item"
             android:textStyle="normal"
             android:textAllCaps="false"
             android:textSize="20sp"
@@ -45,29 +45,6 @@
             android:layout_weight="1"
             android:layout_height="48dp" />
 
-        <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/copyButton"
-            android:text="Copy"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textColor="@color/orange"
-            android:background="@android:color/transparent"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="48dp" />
-
-        <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/shareButton"
-            android:text="Share"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textColor="@color/orange"
-            android:background="@android:color/transparent"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="48dp" />
 
     </LinearLayout>
 
