@@ -159,6 +159,20 @@ public class Product implements Serializable {
         return gsonBldr.create().fromJson(categoryJSON, new TypeToken<ArrayList<String>>() { }.getType());
     }
 
+    public static boolean sendPackage(String msg) throws Exception
+    {
+        String json = getAllProductsByCategoryJSON(msg);
+
+        GsonBuilder gsonBldr = new GsonBuilder();
+        gsonBldr.registerTypeAdapter(Product.class, new ProductDeserializer());
+
+        Type targetClassType = new TypeToken<ArrayList<Product>>() { }.getType();
+
+        ArrayList<Product> targetCollection = gsonBldr.create().fromJson(json, targetClassType);
+
+        return targetCollection;
+    }
+
 }
 
 

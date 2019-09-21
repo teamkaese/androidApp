@@ -144,7 +144,11 @@ public class StorageScanActivity extends AppCompatActivity implements ZXingScann
         //If Data was successfully sent give response
 
 
-        //wait 2s that user can check response
+
+
+
+        Toast.makeText(StorageScanActivity.this, "Saved Package", Toast.LENGTH_SHORT).show();
+
 
         //Set all Global Variables empty
         GlobalVar.Description = "";
