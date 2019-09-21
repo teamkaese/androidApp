@@ -15,9 +15,9 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.menu_activity);
 
 
-        Button addbutton = findViewById(R.id.menuItem_add_button);
-        Button findbutton = findViewById(R.id.menuItem_find_button);
-        Button moveoutbutton = findViewById(R.id.menuItem_moveout_button);
+        Button addbutton = findViewById(R.id.addButton);
+        Button findbutton = findViewById(R.id.searchButton);
+        Button moveoutbutton = findViewById(R.id.checkOut);
 
 
 

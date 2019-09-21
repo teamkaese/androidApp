@@ -12,6 +12,7 @@
 
     <string name="searchItem_name">Name</string>
     <string name="searchItem_button">Search</string>
+    <string name="find_item">Find Product</string>
 
     <string name="menuItem_add">Add Product</string>
     <string name="menuItem_find">Find Product</string>
