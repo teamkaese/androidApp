@@ -1,14 +1,16 @@
 package com.hackhb19.fawadjawaidmalik.teamkaese;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.Calendar;
 
 
 public class AddItemActivity extends AppCompatActivity {
@@ -17,8 +19,12 @@ public class AddItemActivity extends AppCompatActivity {
 
     public EditText NameInput;
     public EditText DescriptionInput;
-    public EditText StorageInput;
     public String ITEM_ID;
+    public TextView dateview;
+
+    //Variables
+    Calendar c;
+    DatePickerDialog dpd;
 
 
     @Override
@@ -26,58 +32,54 @@ public class AddItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_activity);
 
+        //UI
         NameInput = findViewById(R.id.addItem_Name);
         DescriptionInput = findViewById(R.id.addItem_Description);
-        StorageInput = findViewById(R.id.addItem_Storage);
-        final Button OKButton = findViewById(R.id.addItem_OK_button);
-        final Button ExitButton = findViewById(R.id.addItem_Exit_button);
+        TextView ITEM_TEXT = findViewById(R.id.item_id_field);
+        final Button ScanButton = findViewById(R.id.addItem_scan_button);
+        final Button CalendarButton = findViewById(R.id.calendarbutton);
+        dateview = findViewById(R.id.addItem_date);
 
 
+        //getITEM-ID
         Bundle extras = getIntent().getExtras();
         ITEM_ID = extras.getString("ITEM_ID"); //Item ID from QR Code Scan
 
-        TextView ITEM_TEXT = findViewById(R.id.item_id_field);
-
+        //put ITEM-ID in a Textview
         ITEM_TEXT.setText("Item ID: " + ITEM_ID); //set TextView-Text to Item ID
 
 
-
-
-        OKButton.setOnClickListener(new View.OnClickListener() {
+        ScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(NameInput.getText().toString() == "" | DescriptionInput.getText().toString() == "")
-                {
-                    Toast toast = Toast.makeText(getBaseContext(), "Something is missing", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-                    toast.show();
-                }// does not work??
-                else
-                {
                     SetData();
-                    ServerAction();
 
-                    Intent addItemIntent = new Intent(AddItemActivity.this, MenuActivity.class);
+                    Intent addItemIntent = new Intent(AddItemActivity.this, StorageScanActivity.class);
                     startActivity(addItemIntent);
-                    finish();
 
-                }
 
             }
-        });
-        ExitButton.setOnClickListener(new View.OnClickListener() {
+        }); //Scan Storage Location Button
+
+        CalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addItemIntent = new Intent(AddItemActivity.this, MenuActivity.class);
-                startActivity(addItemIntent);
-                finish();
+                c = Calendar.getInstance();
+                int day = c.get(Calendar.DAY_OF_WEEK);
+                int month = c.get(Calendar.DAY_OF_MONTH);
+                int year = c.get(Calendar.DAY_OF_YEAR);
+
+                dpd = new DatePickerDialog(AddItemActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        dateview.setText(i + "/" + (i1 + 1) + "/" + i2);
+                    }
+                }, day, month, year);
+
+                dpd.show();
             }
         });
-
-
-
-
     }
 
     public void SetData()
@@ -85,23 +87,9 @@ public class AddItemActivity extends AppCompatActivity {
         GlobalVar.Description = DescriptionInput.getText().toString();
         GlobalVar.Name = NameInput.getText().toString();
         GlobalVar.ITEM_ID = ITEM_ID;
-        GlobalVar.StorageID = StorageInput.getText().toString();
-    }
-
-    public void ServerAction()
-    {
-        //send the global variables
-        //If Data was successfully sent give response
+        GlobalVar.ExpirationDay = dateview.getText().toString();
+    } //Save the data from the formula
 
 
-        //wait 2s that user can check response
-
-        //Set all Global Variables empty
-        GlobalVar.Description = "";
-        GlobalVar.Name = "";
-        GlobalVar.ITEM_ID = "";
-        GlobalVar.StorageID = "";
-
-    }
 
 }

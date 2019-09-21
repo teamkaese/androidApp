@@ -27,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         });
+
         findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,17 +35,18 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(addItemIntent);
                 finish();
             }
+
         });
+
         deleteButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent deleteItemIntent = new Intent(MenuActivity.this, DeletePackageActivity.class);
                 startActivity(deleteItemIntent);
                 //finish();
             }
-        });
-
-
+        });//Delete package
     }
 
 }
