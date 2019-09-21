@@ -33,7 +33,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addItemIntent = new Intent(MenuActivity.this, FindItemActivity.class);
                 startActivity(addItemIntent);
-                finish();
             }
 
         });
@@ -44,7 +43,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent deleteItemIntent = new Intent(MenuActivity.this, DeletePackageActivity.class);
                 startActivity(deleteItemIntent);
-                //finish();
             }
         });//Delete package
     }

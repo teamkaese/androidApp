@@ -33,7 +33,11 @@ public class FoundItemAdapter extends RecyclerView.Adapter<FoundItemAdapter.View
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Product prod = mData.get(position);
-            holder.myTextView.setText(prod.getProductCategory()  + "     " + prod.getAdmissionDate() + "      " + prod.getId());
+            holder.name.setText(prod.getProductCategory());
+            holder.datum.setText(prod.getAdmissionDate());
+            holder.desc.setText(prod.getDescription());
+            holder.position.setText(prod.getPosition().getGroundPos() + " " + prod.getPosition().getLevel());
+
         }
 
         // total number of rows
@@ -45,11 +49,18 @@ public class FoundItemAdapter extends RecyclerView.Adapter<FoundItemAdapter.View
 
         // stores and recycles views as they are scrolled off screen
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            TextView myTextView;
+            TextView name;
+            TextView position;
+            TextView desc;
+            TextView datum;
 
             ViewHolder(View itemView) {
                 super(itemView);
-                myTextView = itemView.findViewById(R.id.tvAnimalName);
+                name = itemView.findViewById(R.id.name);
+                position = itemView.findViewById(R.id.position);
+                datum = itemView.findViewById(R.id.date);
+                desc = itemView.findViewById(R.id.description);
+
                 itemView.setOnClickListener(this);
             }
 

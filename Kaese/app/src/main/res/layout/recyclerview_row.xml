@@ -38,7 +38,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -47,11 +47,12 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_toEndOf="@+id/name"
-            android:layout_below="@+id/description"
+            android:layout_below="@+id/date"
             android:textSize="12sp" />
 
     </RelativeLayout>
