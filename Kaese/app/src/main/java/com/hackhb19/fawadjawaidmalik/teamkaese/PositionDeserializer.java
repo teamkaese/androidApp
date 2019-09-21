@@ -14,7 +14,7 @@ public class PositionDeserializer implements JsonDeserializer<Position> {
             throws JsonParseException {
         JsonObject jObject = jElement.getAsJsonObject();
         String groundPos = jObject.get("groundPos").getAsString();
-        String level = jObject.get("level").getAsString();
+        String level = String.valueOf(jObject.get("level").getAsInt());
 
         return new Position(groundPos, level );
     }

@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
@@ -21,21 +22,23 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-public class Product {
+public class Product implements Serializable {
     private int id;
     private String productCategory;
-    private String groundPos;
-    private String level;
+    private Position position;
     private String admissionDate;
     private String productStage;
+    private String description;
+    private boolean isEmpty;
 
-    public Product(int id, String productCategory, String groundPos, String level, String admissionDate, String productStage) {
+    public Product(int id, String productCategory, Position position, String admissionDate, String productStage,String description,boolean isEmpty) {
         this.id = id;
         this.productCategory = productCategory;
-        this.groundPos = groundPos;
-        this.level = level;
+        this.position = position;
         this.admissionDate = admissionDate;
         this.productStage = productStage;
+        this.description = description;
+        this.isEmpty = isEmpty;
     }
 
     public int getId() {
@@ -52,22 +55,6 @@ public class Product {
 
     public void setProductCategory(String productCategory) {
         this.productCategory = productCategory;
-    }
-
-    public String getGroundPos() {
-        return groundPos;
-    }
-
-    public void setGroundPos(String groundPos) {
-        this.groundPos = groundPos;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
     }
 
     public String getAdmissionDate() {
@@ -90,7 +77,11 @@ public class Product {
         return openURL("http://10.200.24.15:8080/api/get/"+ id);
     }
 
-    public static Collection<Product> getAllProducts() throws Exception{
+    public static String getAllProductsByCategoryJSON(String cat)throws Exception{
+        return openURL("    http://10.200.24.15:8080/api/all?category="+cat);
+    }
+
+    public static ArrayList<Product> getAllProducts() throws Exception{
 
         String json = getAllProductsJSON();
 
@@ -99,7 +90,7 @@ public class Product {
 
         Type targetClassType = new TypeToken<ArrayList<Product>>() { }.getType();
 
-        Collection<Product> targetCollection = gsonBldr.create().fromJson(json, targetClassType);
+        ArrayList<Product> targetCollection = gsonBldr.create().fromJson(json, targetClassType);
 
         return targetCollection;
     }
@@ -107,6 +98,20 @@ public class Product {
     public static String getAllProductsJSON() throws Exception{
         return openURL("http://10.200.24.15:8080/api/all");
     }
+
+    public static ArrayList<Product> getProductsByCategory(String category)throws Exception{
+        String json = getAllProductsByCategoryJSON(category);
+
+        GsonBuilder gsonBldr = new GsonBuilder();
+        gsonBldr.registerTypeAdapter(Product.class, new ProductDeserializer());
+
+        Type targetClassType = new TypeToken<ArrayList<Product>>() { }.getType();
+
+        ArrayList<Product> targetCollection = gsonBldr.create().fromJson(json, targetClassType);
+
+        return targetCollection;
+    }
+
 
     public static String openURL(String urll) throws Exception{
         URL url = new URL(urll);
@@ -116,9 +121,6 @@ public class Product {
         con.setRequestProperty("Content-Type", "application/json");
 
         con.connect();
-
-        System.out.println(con.getResponseCode());
-        System.out.println(con.getResponseMessage());
 
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
@@ -149,6 +151,12 @@ public class Product {
         return resultString.length() > 0
                 ? resultString.substring(0, resultString.length() - 1)
                 : resultString;
+    }
+
+    public static ArrayList<String> getCategorys() throws Exception{
+        String categoryJSON = openURL("http://10.200.24.15:8080/api/list/category");
+        GsonBuilder gsonBldr = new GsonBuilder();
+        return gsonBldr.create().fromJson(categoryJSON, new TypeToken<ArrayList<String>>() { }.getType());
     }
 
 }

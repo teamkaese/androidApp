@@ -19,6 +19,11 @@
         android:textSize="40sp"
         android:typeface="serif" />
 
+    <!--<Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/category_prompt" />-->
 
     <EditText
         android:id="@+id/searchItem_Name"

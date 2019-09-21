@@ -1,6 +1,8 @@
 package com.hackhb19.fawadjawaidmalik.teamkaese;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
     private String groundPos;
     private String level;
 
