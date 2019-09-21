@@ -35,13 +35,18 @@
         android:hint="@string/addItem_name"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/addItem_Storage"
+    <Button
+        android:id="@+id/calendarbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Expirationdate" />
+
+    <TextView
+        android:id="@+id/addItem_date"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:hint="@string/addItem_SN"
-        android:inputType="textPersonName" />
+        android:text="" />
 
     <EditText
         android:id="@+id/addItem_Description"
@@ -59,7 +64,7 @@
         android:singleLine="false" />
 
     <Button
-        android:id="@+id/addItem_OK_button"
+        android:id="@+id/addItem_scan_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -67,18 +72,9 @@
         android:elevation="4dp"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"
-        android:text="@string/OK_button"
+        android:text="Scan Storage Location"
         android:textColor="#fff" />
 
-    <Button
-        android:id="@+id/addItem_Exit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="4dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:text="@string/exitbutton"
-        android:textColor="#fff" />
+
+
 </LinearLayout>

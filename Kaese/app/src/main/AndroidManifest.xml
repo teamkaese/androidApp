@@ -40,6 +40,9 @@
         <activity android:name=".FoundProductActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".StorageScanActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 
