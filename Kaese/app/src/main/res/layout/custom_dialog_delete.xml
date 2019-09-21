@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imgOfDialog"
+        android:id="@+id/imgOfDeleteDialog"
         android:src="@drawable/ic_done_gr"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
@@ -20,7 +20,7 @@
         android:background="@android:color/black"/>
 
     <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomTextView
-        android:id="@+id/someText"
+        android:id="@+id/someTextDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
@@ -34,8 +34,8 @@
         android:layout_height="wrap_content">
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton
-            android:id="@+id/addButton"
-            android:text="Add Item"
+            android:id="@+id/deleteButton"
+            android:text="Delete Package"
             android:textStyle="normal"
             android:textAllCaps="false"
             android:textSize="20sp"

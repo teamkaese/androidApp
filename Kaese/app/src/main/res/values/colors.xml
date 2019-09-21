@@ -6,4 +6,5 @@
     <color name="gray_bg">#f1f1f1</color>
     <color name="white">@android:color/white</color>
     <color name="orange">#f06f15</color>
+    <color name="black">#000000</color>
 </resources>

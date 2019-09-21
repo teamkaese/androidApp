@@ -51,18 +51,18 @@ public class FindItemActivity extends AppCompatActivity {
 
 
 
-       // new Thread(new Runnable(){
+        // new Thread(new Runnable(){
 //
         //    @Override
-       //     public void run() {
-       //     try {
+        //     public void run() {
+        //     try {
         //        setSpin(Product.getCategorys());
         //    }catch(Exception e){
         //        e.printStackTrace();
         //    }
         //    }
 
-       // }).start();
+        // }).start();
 
 
         SearchButton.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +105,10 @@ public class FindItemActivity extends AppCompatActivity {
 
     }
 
-   // public void setSpin(ArrayList<String> list){
-   //     ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(FindItemActivity.this, android.R.layout.simple_spinner_item, list);
-   //     dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-   //     spin.setAdapter(dataAdapter);
+    // public void setSpin(ArrayList<String> list){
+    //     ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(FindItemActivity.this, android.R.layout.simple_spinner_item, list);
+    //     dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    //     spin.setAdapter(dataAdapter);
     //}
 
 

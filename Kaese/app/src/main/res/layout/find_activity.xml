@@ -47,4 +47,5 @@
         android:paddingRight="70dp"
         android:text="@string/searchItem_button"
         android:textColor="#fff" />
+
 </LinearLayout>

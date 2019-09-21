@@ -7,7 +7,7 @@
     <string name="add_item">Add Item</string>
     <string name="add_description">Description</string>
     <string name="addItem_name">Product</string>
-    <string name="addItem_SN">Storagenumber</string>
+    <string name="addItem_ED">Expirationdate</string>
     <string name="OK_button">OK</string>
 
     <string name="searchItem_name">Product Name</string>
