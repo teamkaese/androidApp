@@ -10,9 +10,9 @@
     <string name="addItem_SN">Storagenumber</string>
     <string name="OK_button">OK</string>
 
-    <string name="searchItem_name">Name</string>
+    <string name="searchItem_name">Product Name</string>
     <string name="searchItem_button">Search</string>
-    <string name="find_item">Find Product</string>
+    <string name="find_item">Find Package</string>
 
     <string name="menuItem_add">Add Product</string>
     <string name="menuItem_find">Find Product</string>
