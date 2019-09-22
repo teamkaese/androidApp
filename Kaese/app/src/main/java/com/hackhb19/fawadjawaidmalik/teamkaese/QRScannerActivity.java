@@ -133,4 +133,10 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
         }
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(QRScannerActivity.this, MenuActivity.class);
+        startActivity(addIntent);
+        finish();
+    }
 }

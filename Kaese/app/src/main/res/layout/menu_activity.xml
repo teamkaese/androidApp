@@ -16,7 +16,8 @@
         android:layout_height="150dp"
         android:layout_above="@+id/addPackageButton"
         android:layout_marginBottom="75dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:onClick="showWebsite"/>
 
 
         <com.hackhb19.fawadjawaidmalik.teamkaese.CustomWidgets.CustomButton

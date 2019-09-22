@@ -1,6 +1,8 @@
 package com.hackhb19.fawadjawaidmalik.teamkaese;
 
+import android.app.ProgressDialog;
 import android.util.Pair;
+import android.widget.Toast;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -22,6 +24,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Product implements Serializable {
     private int id;
     private String productCategory;
@@ -30,6 +38,8 @@ public class Product implements Serializable {
     private String productStage;
     private String description;
     private boolean isEmpty;
+
+
 
     public Product(int id, String productCategory, Position position, String admissionDate, String productStage,String description,boolean isEmpty) {
         this.id = id;
@@ -159,19 +169,7 @@ public class Product implements Serializable {
         return gsonBldr.create().fromJson(categoryJSON, new TypeToken<ArrayList<String>>() { }.getType());
     }
 
-    public static boolean sendPackage(String msg) throws Exception
-    {
-        String json = getAllProductsByCategoryJSON(msg);
 
-        GsonBuilder gsonBldr = new GsonBuilder();
-        gsonBldr.registerTypeAdapter(Product.class, new ProductDeserializer());
-
-        Type targetClassType = new TypeToken<ArrayList<Product>>() { }.getType();
-
-        ArrayList<Product> targetCollection = gsonBldr.create().fromJson(json, targetClassType);
-
-        return targetCollection;
-    }
 
 }
 

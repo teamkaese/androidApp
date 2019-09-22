@@ -1,9 +1,14 @@
 package com.hackhb19.fawadjawaidmalik.teamkaese;
 
+import com.google.gson.JsonElement;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Position implements Serializable {
+    @SerializedName("groundPos")
     private String groundPos;
+    @SerializedName("level")
     private String level;
 
     public Position(String groundPos, String level) {

@@ -197,6 +197,13 @@ public class DeletePackageActivity  extends AppCompatActivity implements ZXingSc
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(DeletePackageActivity.this, MenuActivity.class);
+        startActivity(addIntent);
+
+        finish();
+    }
 }
 
 

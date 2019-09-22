@@ -90,7 +90,13 @@ public class FindItemActivity extends AppCompatActivity {
     //     dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     //     spin.setAdapter(dataAdapter);
     //}
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(FindItemActivity.this, MenuActivity.class);
+        startActivity(addIntent);
 
+        finish();
+    }
 
 
 }
