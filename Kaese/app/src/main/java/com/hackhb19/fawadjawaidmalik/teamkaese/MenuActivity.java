@@ -14,9 +14,7 @@ import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
 
-
     boolean doubleBackToExitPressedOnce = false;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,7 +53,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addItemIntent = new Intent(MenuActivity.this, FindItemActivity.class);
                 startActivity(addItemIntent);
-                finish();
             }
 
         });
@@ -66,22 +63,16 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent deleteItemIntent = new Intent(MenuActivity.this, DeletePackageActivity.class);
                 startActivity(deleteItemIntent);
-                finish();
             }
         });//Delete package
+
         locatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent addIntent = new Intent(MenuActivity.this, locateActivity.class);
                 startActivity(addIntent);
-                finish();
             }
         });
-
-
-
-
-
 
     }
 

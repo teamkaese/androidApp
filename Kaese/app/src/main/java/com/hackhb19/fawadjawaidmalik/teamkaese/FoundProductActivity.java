@@ -46,7 +46,15 @@ public class FoundProductActivity extends AppCompatActivity implements FoundItem
 
         @Override
         public void onItemClick(View view, int position) {
-            Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+            Intent addItemIntent = new Intent(FoundProductActivity.this, CheeseMap.class);
+
+            String catt = adapter.getItem(position).getProductCategory();
+
+            addItemIntent.putExtra("catt", catt);
+
+            startActivity(addItemIntent);
+
+            Toast.makeText(this, "You clicked " + catt + " on row number " + position, Toast.LENGTH_SHORT).show();
         }
 
     @Override

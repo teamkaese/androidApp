@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hackhb19.fawadjawaidmalik.teamkaese">
 
@@ -15,8 +14,9 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MenuActivity"
+        <activity android:name=".CheeseMap"></activity>
+        <activity
+            android:name=".MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +33,10 @@
         <activity android:name=".QRScannerActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".DeletePackageActivity"
+        <activity android:name=".FoundProductActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".FoundProductActivity"
+        <activity android:name=".DeletePackageActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".StorageScanActivity"
