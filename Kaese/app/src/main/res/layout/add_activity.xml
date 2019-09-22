@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_bg"
+    android:background="@drawable/main_background"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -17,14 +17,16 @@
         android:text="@string/add_item"
         android:textColor="@android:color/black"
         android:textSize="40sp"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/item_id_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="" />
+        android:text=""
+        android:textStyle="bold"/>
 
 
     <EditText
@@ -39,7 +41,10 @@
         android:id="@+id/calendarbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose Expirationdate" />
+        android:text="Choose Expirationdate"
+        android:background="@drawable/button"
+        android:textColor="#fff"/>
+
 
     <TextView
         android:id="@+id/addItem_date"
@@ -68,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/button"
         android:elevation="4dp"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"

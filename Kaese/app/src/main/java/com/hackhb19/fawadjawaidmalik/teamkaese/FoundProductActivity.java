@@ -57,4 +57,14 @@ public class FoundProductActivity extends AppCompatActivity implements FoundItem
             Toast.makeText(this, "You clicked " + catt + " on row number " + position, Toast.LENGTH_SHORT).show();
         }
 
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(FoundProductActivity.this, FindItemActivity.class);
+        startActivity(addIntent);
+
+
+
+        finish();
+    }
+
 }

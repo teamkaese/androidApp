@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class AddItemActivity extends AppCompatActivity {
@@ -56,6 +57,9 @@ public class AddItemActivity extends AppCompatActivity {
                     SetData();
 
                     Intent addItemIntent = new Intent(AddItemActivity.this, StorageScanActivity.class);
+                    Package p = new Package(ITEM_ID.toString(), NameInput.getText().toString(),
+                            DescriptionInput.getText().toString(), dateview.getText().toString());
+                    addItemIntent.putExtra("parcel_data", p);
                     startActivity(addItemIntent);
 
 
@@ -65,6 +69,8 @@ public class AddItemActivity extends AppCompatActivity {
         CalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 c = Calendar.getInstance();
                 int day = c.get(Calendar.DAY_OF_WEEK);
                 int month = c.get(Calendar.DAY_OF_MONTH);
@@ -84,12 +90,18 @@ public class AddItemActivity extends AppCompatActivity {
 
     public void SetData()
     {
-        GlobalVar.Description = DescriptionInput.getText().toString();
-        GlobalVar.Name = NameInput.getText().toString();
-        GlobalVar.ITEM_ID = ITEM_ID;
-        GlobalVar.ExpirationDay = dateview.getText().toString();
+
     } //Save the data from the formula
 
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(AddItemActivity.this, MenuActivity.class);
+        startActivity(addIntent);
+
+
+
+        finish();
+    }
 
 
 }

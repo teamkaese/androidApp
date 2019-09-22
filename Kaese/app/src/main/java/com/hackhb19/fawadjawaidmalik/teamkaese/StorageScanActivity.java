@@ -2,12 +2,14 @@ package com.hackhb19.fawadjawaidmalik.teamkaese;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -16,15 +18,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.annotations.SerializedName;
 import com.google.zxing.Result;
+
+import java.util.Calendar;
+import java.util.regex.Pattern;
 
 import butterknife.OnClick;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public class StorageScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private ZXingScannerView mScannerView;
     private boolean flashState = false;
+
+    private ProgressDialog progressDialog;
+    private String baseUrl;
+    public String message;
+    public Package packageDetails;
 
 
     @Override
@@ -39,6 +59,12 @@ public class StorageScanActivity extends AppCompatActivity implements ZXingScann
         ViewGroup contentFrame = (ViewGroup) findViewById(R.id.content_frame);
         mScannerView = new ZXingScannerView(this);
         contentFrame.addView(mScannerView);
+
+        baseUrl = "http://10.200.24.15:8080/";
+
+
+        Bundle extras = getIntent().getExtras();
+        packageDetails = (Package) getIntent().getParcelableExtra("parcel_data");
     }
 
     @Override
@@ -78,9 +104,11 @@ public class StorageScanActivity extends AppCompatActivity implements ZXingScann
             @Override
             public void onClick(View v) {
 
-                GlobalVar.StorageID = rawResult.getText().toString();
+                //SetUpPosition(rawResult.toString());
 
-                ServerAction();
+                //ServerAction();
+                addData(rawResult.toString());
+
 
                 Intent addItemIntent = new Intent(StorageScanActivity.this, MenuActivity.class);
                 startActivity(addItemIntent);
@@ -97,6 +125,16 @@ public class StorageScanActivity extends AppCompatActivity implements ZXingScann
             }
         });
         dialog.show();
+    }
+
+    public void SetUpPosition(String result)
+    {
+        String [] positions;
+
+
+        positions = result.split(Pattern.quote("-"));
+        GlobalVar.position = new Position(positions[1], positions[2]);
+        GlobalVar.StorageNumber = positions[0];
     }
 
     @Override
@@ -140,18 +178,91 @@ public class StorageScanActivity extends AppCompatActivity implements ZXingScann
 
     public void ServerAction()
     {
-        //send the global variables
+        //send the variables
         //If Data was successfully sent give response
 
 
-        //wait 2s that user can check response
+        PackageSerializer serializer = new PackageSerializer();
+
 
         //Set all Global Variables empty
         GlobalVar.Description = "";
         GlobalVar.Name = "";
         GlobalVar.ITEM_ID = "";
-        GlobalVar.StorageID = "";
+        GlobalVar.position = null;
+        GlobalVar.ExpirationDay = "";
+        GlobalVar.StorageNumber = "";
+    }
+
+
+    private void addData(String storageNumber){
+        //String enteredpostid = postid.getText().toString();
+
+        progressDialog = new ProgressDialog(StorageScanActivity.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        //Defining retrofit api service
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        StorageScanActivity.ApiService service = retrofit.create(StorageScanActivity.ApiService.class);
+
+        String [] positions = storageNumber.split(Pattern.quote("-"));
+        Position position = new Position(positions[1], positions[2]);
+        Package userPackage = new Package(packageDetails.getId(), packageDetails.getProductCategory(), position, packageDetails.getDescription()
+        ,storageNumber, packageDetails.getExpirationDay(), (Calendar.getInstance().getTime()).toString(), "riping", false);
+        //Log.v("PACKAGEHERE", userPackage()
+        Call<AddResponse> call = service.createPackage(userPackage);/*packageId*/
+        //calling the api
+        call.enqueue(new Callback<AddResponse>() {
+            @Override
+            public void onResponse(Call<AddResponse> call, Response<AddResponse> response) {
+                //hiding progress dialog
+                progressDialog.dismiss();
+                if(response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Package Added", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private interface ApiService {
+
+        @POST("api/")
+        Call<AddResponse> createPackage(@Body Package userpackage);
+    }
+
+
+    private class AddResponse{
+        @SerializedName("status")
+        private String status;
+
+        public void setStatus(String status){
+            this.status = status;
+        }
+        public String getStatus(){
+            return status;
+        }
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(StorageScanActivity.this, AddItemActivity.class);
+        startActivity(addIntent);
+
+
+
+        finish();
+    }
+
 
 }

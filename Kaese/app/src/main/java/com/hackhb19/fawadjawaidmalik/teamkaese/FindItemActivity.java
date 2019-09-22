@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -23,12 +21,8 @@ import java.net.Socket;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
+
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class FindItemActivity extends AppCompatActivity {
@@ -110,7 +104,13 @@ public class FindItemActivity extends AppCompatActivity {
     //     dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     //     spin.setAdapter(dataAdapter);
     //}
+    @Override
+    public void onBackPressed() {
+        Intent addIntent = new Intent(FindItemActivity.this, MenuActivity.class);
+        startActivity(addIntent);
 
+        finish();
+    }
 
 
 }
